@@ -2,8 +2,9 @@ import sys
 from pathlib import Path
 
 
-def load_word(path="entry.txt"):
-    text = Path(path).read_text(encoding="utf-8").strip()
+def load_word(path=None):
+    entry_path = Path(__file__).with_name("entry.txt") if path is None else Path(path)
+    text = entry_path.read_text(encoding="utf-8").strip()
     return text
 
 
